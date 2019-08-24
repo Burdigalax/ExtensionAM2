@@ -1,0 +1,23 @@
+{
+  "name": "am2",
+  "version": "1.0.0",
+  "description": "AM2 Price Finder",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Burdigalien/AM2.git"
+  },
+  "author": "RG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Burdigalien/AM2/issues"
+  },
+  "homepage": "https://github.com/Burdigalien/AM2#readme"
+}

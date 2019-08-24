@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button {
+            height: 30px;
+            width: 90%;
+            margin-left:5%;
+            outline: none;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            background-color: #a29929;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: Verdana;
+        }
+        button:hover{
+            background-color: #d2c63a;
+        }
+        body {
+            width: 260px;
+            background-color:#2d2d2d;
+            color: white;
+        }
+        input {
+            width: 50px;
+        }
+        #lineSaved{
+            font-style: italic;
+        }
+        a,a:visited{
+            color: rgb(226, 218, 120);
+        }
+        #setNewPrice{ margin-top: 10px}
+        .labelPAX{width: 75px; font-weight: bold; display: inline-block; margin-top:5px;}
+    </style>
+</head>
+<body>
+<h1>AM2 : Price Finder</h1>
+<h4><strong>1.</strong> <a href="https://www.airlines-manager.com/network/planning" id="goToPlanning">Go to manage line for view remaining PAX</a></h4>
+<button id="saveRemainingPAX"> SAVE REMAINING PAX</button>
+<h4><strong>2.</strong> <a href="https://www.airlines-manager.com/marketing/pricing/" id="goToPricing">Go to manage price line</a></h4>
+- Select a line<br>
+- Remaining PAX for this line : <br><br>
+<span class="labelPAX">ECO :</span><input type="number" id="ecoRemainingPAX" /> <br>
+<span class="labelPAX">BUSINESS : </span><input type="number" id="businessRemainingPAX" /> <br>
+<span class="labelPAX">FIRST : </span><input type="number" id="firstRemainingPAX" /> <br>
+<span class="labelPAX">CARGO : </span><input type="number" id="cargoRemainingPAX" /> <br><br>
+<span id="lineSaved"></span>
+<br>
+<button id="setNewPrice"> SET NEW PRICE</button>
+<script src="popup.js"></script>
+</body>
+</html>
