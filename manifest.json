@@ -16,7 +16,6 @@
       "js": ["scripts/managePricing.js"]
     }
   ],
-  "options_page": "options.html",
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {

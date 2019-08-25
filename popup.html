@@ -34,6 +34,7 @@
         }
         #setNewPrice{ margin-top: 10px}
         .labelPAX{width: 75px; font-weight: bold; display: inline-block; margin-top:5px;}
+        #credit{font-style: italic; color: gray}
     </style>
 </head>
 <body>
@@ -42,6 +43,7 @@
 <button id="saveRemainingPAX"> SAVE REMAINING PAX</button>
 <h4><strong>2.</strong> <a href="https://www.airlines-manager.com/marketing/pricing/" id="goToPricing">Go to manage price line</a></h4>
 - Select a line<br>
+- Buy AUDIT ! <br>
 - Remaining PAX for this line : <br><br>
 <span class="labelPAX">ECO :</span><input type="number" id="ecoRemainingPAX" /> <br>
 <span class="labelPAX">BUSINESS : </span><input type="number" id="businessRemainingPAX" /> <br>
@@ -49,7 +51,11 @@
 <span class="labelPAX">CARGO : </span><input type="number" id="cargoRemainingPAX" /> <br><br>
 <span id="lineSaved"></span>
 <br>
-<button id="setNewPrice"> SET NEW PRICE</button>
+<button id="setNewPrice"> SET NEW PRICE</button><br><br>
+- Validate new price
+<div id="credit">
+    Developed by Burdigala Airlines, member of Nectar network.
+</div>
 <script src="popup.js"></script>
 </body>
 </html>
