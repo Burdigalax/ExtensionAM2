@@ -1,6 +1,6 @@
 {
   "name": "Airline Manager 2 : Price Finder Extension",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Find ideal price for your lines, depending on your remaining capacity",
   "background": {
     "scripts": ["background.js"],

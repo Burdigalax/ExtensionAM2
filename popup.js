@@ -7,14 +7,16 @@ const cargoRemainingPAX = document.getElementById("cargoRemainingPAX");
 const lineSaved = document.getElementById("lineSaved");
 const goToPlanning = document.getElementById("goToPlanning");
 const goToPricing = document.getElementById("goToPricing");
+const goToBurdigala = document.getElementById("goToBurdigala");
+const goToNectar = document.getElementById("goToNectar");
 
 function refreshUI(data) {
   if (!data) return;
 
-  ecoRemainingPAX.value = data.ecoPAX;
-  businessRemainingPAX.value = data.businessPAX;
-  firstRemainingPAX.value = data.firstPAX;
-  cargoRemainingPAX.value = data.cargoPAX;
+  ecoRemainingPAX.value = data.ecoPAX || 0;
+  businessRemainingPAX.value = data.businessPAX || 0;
+  firstRemainingPAX.value = data.firstPAX || 0;
+  cargoRemainingPAX.value = data.cargoPAX || 0;
   lineSaved.innerHTML = `(Last line saved : <strong>${data.line})</strong>`;
 }
 
@@ -52,7 +54,16 @@ goToPlanning.onclick = function() {
 };
 
 goToPricing.onclick = function() {
+  chrome.storage.sync.set({ goToSelectedLine: true });
   goTo("https://www.airlines-manager.com/marketing/pricing/?airport=0");
+};
+
+goToBurdigala.onclick = function() {
+  goTo("https://www.airlines-manager.com/company/profile/airline/77516");
+};
+
+goToNectar.onclick = function() {
+  goTo("https://www.airlines-manager.com/alliance/profile/9046");
 };
 
 function onChangeInput(key, newValue) {
