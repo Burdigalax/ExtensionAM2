@@ -47,6 +47,8 @@ function calculNewPrice(index, remainingDemands) {
   const auditDemands = getAuditDemands(index);
   const nowDemands = getNowDemands(index);
 
+  if (auditDemands <= 0) return null;
+
   const calcul =
     ((auditDemands - nowDemands + remainingDemands) / auditDemands / 3) *
       auditPrice +
@@ -66,10 +68,10 @@ function setNewPrice() {
     const newFirstPrice = calculNewPrice(FIRST, remainingDemands.firstPAX);
     const newCargoPrice = calculNewPrice(CARGO, remainingDemands.cargoPAX);
 
-    setInput(ECO, newEcoPrice);
-    setInput(BUSINESS, newBusinessPrice);
-    setInput(FIRST, newFirstPrice);
-    setInput(CARGO, newCargoPrice);
+    if (newEcoPrice) setInput(ECO, newEcoPrice);
+    if (newBusinessPrice) setInput(BUSINESS, newBusinessPrice);
+    if (newFirstPrice) setInput(FIRST, newFirstPrice);
+    if (newCargoPrice) setInput(CARGO, newCargoPrice);
   });
 }
 

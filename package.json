@@ -1,6 +1,6 @@
 {
   "name": "am2",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "AM2 Price Finder",
   "main": "index.js",
   "dependencies": {},
