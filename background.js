@@ -4,7 +4,7 @@ chrome.runtime.onInstalled.addListener(function() {
       {
         conditions: [
           new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { hostEquals: "www.airlines-manager.com" }
+            pageUrl: { urlMatches: "airlines-manager.com" }
           })
         ],
         actions: [new chrome.declarativeContent.ShowPageAction()]
