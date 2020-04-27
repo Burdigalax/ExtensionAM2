@@ -1,93 +1,116 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <style>
-        button {
-            height: 30px;
-            width: 90%;
-            margin-left: 5%;
-            outline: none;
-            border-radius: 10px;
-            border: none;
-            color: white;
-            background-color: #a29929;
-            cursor: pointer;
-            font-weight: bold;
-            font-family: Verdana;
-        }
+      button {
+        height: 30px;
+        width: 90%;
+        margin-left: 5%;
+        outline: none;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        background-color: #a29929;
+        cursor: pointer;
+        font-weight: bold;
+        font-family: Verdana;
+      }
 
-        button:hover {
-            background-color: #d2c63a;
-        }
+      button:hover {
+        background-color: #d2c63a;
+      }
 
-        body {
-            width: 260px;
-            background-color: #2d2d2d;
-            color: white;
-        }
+      body {
+        width: 260px;
+        background-color: #2d2d2d;
+        color: white;
+      }
 
-        input {
-            width: 50px;
-        }
+      input {
+        width: 50px;
+      }
 
-        #lineSaved {
-            font-style: italic;
-        }
+      #lineSaved {
+        font-style: italic;
+      }
 
-        a, a:visited {
-            color: rgb(226, 218, 120);
-        }
+      a,
+      a:visited {
+        color: rgb(226, 218, 120);
+      }
 
-        #setNewPrice {
-            margin-top: 10px
-        }
+      #setNewPrice {
+        margin-top: 10px;
+      }
 
-        .labelPAX {
-            width: 75px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 5px;
-        }
+      .labelPAX {
+        width: 75px;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 5px;
+      }
 
-        #credit {
-            font-style: italic;
-            color: gray;
-            margin-top: 10px;
-            line-height:1.2;
-            font-size: 11px;
-        }
-        #versionning{
-            text-align: right;
-            margin-top: 0;
-            font-style: italic;
-        }
+      #credit {
+        font-style: italic;
+        color: gray;
+        margin-top: 10px;
+        line-height: 1.2;
+        font-size: 11px;
+      }
+      #versionning {
+        text-align: right;
+        margin-top: 0;
+        font-style: italic;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>AM2 : Price Finder</h1>
-    <h4><strong>1.</strong> <a href="https://www.airlines-manager.com/network/planning" id="goToPlanning">Go to manage line
-        for view remaining PAX</a></h4>
-    <button id="saveRemainingPAX"> SAVE REMAINING PAX</button>
-    <h4><strong>2.</strong> <a href="https://www.airlines-manager.com/marketing/pricing/" id="goToPricing" target='_blank'>Go
-        to manage price line saved</a></h4>
-    - Select a line<br>
-    - Buy AUDIT ! <br>
-    - Remaining PAX for this line : <br><br>
-    <span class="labelPAX">ECO :</span><input id="ecoRemainingPAX" type="number"/> <br>
-    <span class="labelPAX">BUSINESS : </span><input id="businessRemainingPAX" type="number"/> <br>
-    <span class="labelPAX">FIRST : </span><input id="firstRemainingPAX" type="number"/> <br>
-    <span class="labelPAX">CARGO : </span><input id="cargoRemainingPAX" type="number"/> <br><br>
+    <h4>
+      <strong>1.</strong>
+      <a href="" id="goToPlanning">Go to manage line for view remaining PAX</a>
+    </h4>
+    <button id="saveRemainingPAX">SAVE REMAINING PAX</button>
+    <h4>
+      <strong>2.</strong>
+      <a href="" id="goToPricing" target="_blank"
+        >Go to manage price line saved</a
+      >
+    </h4>
+    - Select a line<br />
+    - Buy AUDIT ! <br />
+    - Remaining PAX for this line : <br /><br />
+    <span class="labelPAX">ECO :</span
+    ><input id="ecoRemainingPAX" type="number" /> <br />
+    <span class="labelPAX">BUSINESS : </span
+    ><input id="businessRemainingPAX" type="number" /> <br />
+    <span class="labelPAX">FIRST : </span
+    ><input id="firstRemainingPAX" type="number" /> <br />
+    <span class="labelPAX">CARGO : </span
+    ><input id="cargoRemainingPAX" type="number" /> <br /><br />
     <span id="lineSaved"></span>
-    <br>
-    <button id="setNewPrice"> SET NEW PRICE</button>
-    <br><br>
+    <br />
+    <button id="setNewPrice">SET NEW PRICE</button>
+    <br /><br />
     - Validate new price
     <div id="credit">
-        Developed by <a id="goToBurdigala" href="https://www.airlines-manager.com/company/profile/airline/77516" target="_blank"> Burdigala
-        Airlines</a>, member of <a id="goToNectar" href="https://www.airlines-manager.com/alliance/profile/9046" target="_blank">Nectar</a>
-        network.
+      Developed by
+      <a
+        id="goToBurdigala"
+        href="https://www.airlines-manager.com/company/profile/airline/77516"
+        target="_blank"
+      >
+        Burdigala Airlines</a
+      >, member of
+      <a
+        id="goToNectar"
+        href="https://www.airlines-manager.com/alliance/profile/9046"
+        target="_blank"
+        >Nectar</a
+      >
+      network.
     </div>
-    <p id="versionning">version 1.1.3</p>
+    <p id="versionning">version 1.2.0</p>
     <script src="popup.js"></script>
-</body>
+  </body>
 </html>

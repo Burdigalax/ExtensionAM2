@@ -43,27 +43,36 @@ setNewPrice.onclick = function(element) {
   });
 };
 
-function goTo(newUrl) {
-  chrome.tabs.query({ currentWindow: true, active: true }, function(tab) {
-    chrome.tabs.update(tab.id, { url: newUrl });
+function getUrl(newUrl, hasBaseUrl, tab) {
+  const url = new URL(tab.url);
+  return hasBaseUrl ? newUrl : `${url.origin}${newUrl}`;
+}
+
+function goTo(newUrl, hasBaseUrl = false) {
+  chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
+    chrome.tabs.update(tabs.id, {
+      url: getUrl(newUrl, hasBaseUrl, tabs[0])
+    });
   });
 }
 
+const originUrl = window.location.origin;
+
 goToPlanning.onclick = function() {
-  goTo("https://www.airlines-manager.com/network/planning");
+  goTo(`/network/planning`);
 };
 
 goToPricing.onclick = function() {
   chrome.storage.sync.set({ goToSelectedLine: true });
-  goTo("https://www.airlines-manager.com/marketing/pricing/?airport=0");
+  goTo(`/marketing/pricing/?airport=0`);
 };
 
 goToBurdigala.onclick = function() {
-  goTo("https://www.airlines-manager.com/company/profile/airline/77516");
+  goTo("https://www.airlines-manager.com/company/profile/airline/77516", true);
 };
 
 goToNectar.onclick = function() {
-  goTo("https://www.airlines-manager.com/alliance/profile/9046");
+  goTo("https://www.airlines-manager.com/alliance/profile/9046", true);
 };
 
 function onChangeInput(key, newValue) {
