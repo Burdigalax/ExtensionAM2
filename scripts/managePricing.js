@@ -83,16 +83,6 @@ chrome.runtime.onMessage.addListener(function(message, sender, callback) {
   }
 });
 
-getTrOfSelectedLine = function(name) {
-  const cells = Array.from(
-    document.getElementsByClassName("priceTable")[0].getElementsByTagName("td")
-  );
-
-  return cells.find(function(cell) {
-    return cell.innerText.includes(name);
-  }).parentNode;
-};
-
 const goToSelectedLine = function() {
   chrome.storage.sync.get(["goToSelectedLine"], function(data) {
     const pathNames = document.location.pathname.split("/");
@@ -100,14 +90,14 @@ const goToSelectedLine = function() {
     const hasAlreadyOnManageLine = Number.isInteger(parseInt(lastPathName));
     if (data.goToSelectedLine && !hasAlreadyOnManageLine) {
       chrome.storage.sync.get(["priceFinder"], function(data) {
-        const trOfSelectedLine = getTrOfSelectedLine(data.priceFinder.line);
-        if (!trOfSelectedLine) return;
-
-        const linkOfSelectedLine = trOfSelectedLine.getElementsByTagName(
-          "a"
-        )[0];
-
-        linkOfSelectedLine.click();
+        const options = document.getElementsByName("filters[line]")[0].options;
+        for (let o = 0; o < options.length; o++) {
+          if (
+            options[o].innerHTML === data.priceFinder.line.replace(/\s/g, "")
+          ) {
+            document.location.href = `${window.location.origin}${window.location.pathname}${options[o].value}`;
+          }
+        }
       });
     }
     chrome.storage.sync.set({ goToSelectedLine: false });
