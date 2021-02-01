@@ -48,11 +48,21 @@ function getUrl(newUrl, hasBaseUrl, tab) {
   return hasBaseUrl ? newUrl : `${url.origin}${newUrl}`;
 }
 
-function goTo(newUrl, hasBaseUrl = false) {
+function goTo(newUrl, hasBaseUrl = false, newTab = false) {
   chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
-    chrome.tabs.update(tabs.id, {
-      url: getUrl(newUrl, hasBaseUrl, tabs[0])
-    });
+    const url = getUrl(newUrl, hasBaseUrl, tabs[0]);
+    if (!newTab) {
+      chrome.tabs.update(tabs.id, {
+        url: url
+      });
+    } else {
+      chrome.tabs.create({
+        active: true,
+        index: tabs[0].index + 1,
+        url,
+        openerTabId: tabs.id
+      });
+    }
   });
 }
 
@@ -64,7 +74,7 @@ goToPlanning.onclick = function() {
 
 goToPricing.onclick = function() {
   chrome.storage.sync.set({ goToSelectedLine: true });
-  goTo(`/marketing/pricing/?airport=0`);
+  goTo(`/marketing/pricing/?airport=0`, false, true);
 };
 
 goToBurdigala.onclick = function() {
