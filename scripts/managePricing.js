@@ -82,28 +82,3 @@ chrome.runtime.onMessage.addListener(function(message, sender, callback) {
       break;
   }
 });
-
-const goToSelectedLine = function() {
-  chrome.storage.sync.get(["goToSelectedLine"], function(data) {
-    const pathNames = document.location.pathname.split("/");
-    const lastPathName = pathNames[pathNames.length - 1];
-    const hasAlreadyOnManageLine = Number.isInteger(parseInt(lastPathName));
-    if (data.goToSelectedLine && !hasAlreadyOnManageLine) {
-      chrome.storage.sync.get(["priceFinder"], function(data) {
-        const options = document.getElementsByName("filters[line]")[0].options;
-        for (let o = 0; o < options.length; o++) {
-          if (
-            options[o].innerHTML === data.priceFinder.line.replace(/\s/g, "")
-          ) {
-            document.location.href = `${window.location.origin}${window.location.pathname}${options[o].value}`;
-          }
-        }
-      });
-    }
-    chrome.storage.sync.set({ goToSelectedLine: false });
-  });
-};
-
-window.onload = function() {
-  goToSelectedLine();
-};

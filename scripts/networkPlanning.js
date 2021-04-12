@@ -10,6 +10,12 @@ function getLine() {
   return lineSelected.substring(0, lineSelected.indexOf("-") - 1);
 }
 
+function getLineId() {
+  return document
+    .getElementsByClassName("lineListSelected")[0]
+    .getElementsByClassName("lineId")[0].innerText;
+}
+
 chrome.runtime.onMessage.addListener(function(message, sender, callback) {
   switch (message.type) {
     case "getRemainingPAX":
@@ -20,7 +26,8 @@ chrome.runtime.onMessage.addListener(function(message, sender, callback) {
             businessPAX: getPAX(2),
             firstPAX: getPAX(3),
             cargoPAX: getPAX(4),
-            line: getLine()
+            line: getLine(),
+            lineId: getLineId()
           }
         },
         function() {}

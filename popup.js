@@ -73,8 +73,12 @@ goToPlanning.onclick = function() {
 };
 
 goToPricing.onclick = function() {
-  chrome.storage.sync.set({ goToSelectedLine: true });
-  goTo(`/marketing/pricing/?airport=0`, false, true);
+  chrome.storage.sync.get(["priceFinder"], function(data) {
+    const lineId = data.priceFinder.lineId;
+    if (!lineId)
+      return alert("Error : Save line before with SAVE REMAINING PAX button");
+    return goTo(`/marketing/pricing/${lineId}`, false, true);
+  });
 };
 
 goToBurdigala.onclick = function() {
